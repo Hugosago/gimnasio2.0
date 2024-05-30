@@ -1,5 +1,4 @@
 <template>
- 
     <!-- source:https://codepen.io/owaiswiz/pen/jOPvEPB -->
 <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
     <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -10,7 +9,7 @@
             </div>
             <div class="mt-12 flex flex-col items-center">
                 <h1 class="text-2xl xl:text-3xl font-extrabold">
-                    Iniar Sesion
+                    Iniciar Sesion
                 </h1>
                 <div class="w-full flex-1 mt-8">
                     <div class="flex flex-col items-center">
@@ -33,7 +32,7 @@
                                 </svg>
                             </div>
                             <span class="ml-4">
-                                Continuar con Google
+                                Iniciar Sesion
                             </span>
                         </button>
 
@@ -46,7 +45,7 @@
                                 </svg>
                             </div>
                             <span class="ml-4">
-                                Continuar con GitHub
+                               Continuar con GitHub
                             </span>
                         </button>
                     </div>
@@ -54,7 +53,7 @@
                     <div class="my-12 border-b text-center">
                         <div
                             class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                            o continuar con correo
+                           O continua con google
                         </div>
                     </div>
 
@@ -74,17 +73,16 @@
                                 <path d="M20 8v6M23 11h-6" />
                             </svg>
                             <span class="ml-3">
-                                Registrar
                             </span>
                         </button>
                         <p class="mt-6 text-xs text-gray-600 text-center">
                             Estoy de acuerdo con BullsGym y sus
                             <a href="#" class="border-b border-gray-500 border-dotted">
-                                Termino de Servicio
+                                Terminos de servico
                             </a>
-                            y su
+                            and its
                             <a href="#" class="border-b border-gray-500 border-dotted">
-                                Politica de Privacidad
+                                Politicas de privacidad
                             </a>
                         </p>
                     </div>
