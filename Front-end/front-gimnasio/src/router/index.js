@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../components/Login.vue'
 import RegisterUser from '../components/RegisterUser.vue'
 import Menu from '../components/Menu.vue'
+import Dashboard from '@/components/dashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +18,14 @@ const router = createRouter({
       component: RegisterUser
     },
     {
-      path: '/meu',
+      path: '/menu',
       name: 'menu',
       component: Menu
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     },
     {
       path: '/page/:sectionSlug',
