@@ -236,13 +236,24 @@
     </aside>
     
     <div class="p-4 sm:ml-64">
-       <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-          <h1>Bienvenido al sistema</h1>
-       </div>
+       
        <router-view />
     </div>
     
     
     </template>
+
+<script>
+import Persona from './Persona.vue'
+import Usuario from './Usuario.vue'
+
+export default {
+    components:{
+        Persona,
+        Usuario
+    }
+}
+
+</script>
     
     
