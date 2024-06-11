@@ -4,6 +4,9 @@ import RegisterUser from '../components/RegisterUser.vue'
 import Menu from '../components/Menu.vue'
 import Dashboard from '@/components/dashboard.vue'
 import Persona from '@/components/Persona.vue'
+import Membresias from '@/components/Membresias.vue'
+import Miembros from '@/components/Miembros.vue'
+import TransaccionPagos from '@/components/TransaccionPagos.vue'
 
 
 
@@ -30,9 +33,10 @@ const router = createRouter({
       name: 'dashboard',
       component: Dashboard,
       children:[
-        {
-          path: '/personas', name: 'personas', component: Persona
-        }
+        {     path: '/personas', name: 'personas', component: Persona},
+        {     path: '/membresias', name: 'membresias', component: Membresias},
+        {     path: '/miembros', name: 'miembros', component: Miembros},
+        {     path: '/transaccionPagos', name: 'transaccionPagos', component: TransaccionPagos}
       ]
     },
     {
