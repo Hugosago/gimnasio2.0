@@ -6,7 +6,7 @@ import enum
 
 
 class MyGenero(enum.Enum):
-    Madculino = "Masculino"
+    Masculino = "Masculino"
     Femenino = "Femenino"
     Otro = "Otro"
 
