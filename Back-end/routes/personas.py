@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import  Depends,APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from cryptography.fernet import Fernet
 import crud.personas
@@ -40,8 +40,8 @@ def create_persona(persona: schemas.personas.PersonaCreate, db: Session = Depend
         raise HTTPException(status_code=400, detail="Persona existente intenta nuevamente")
     return crud.personas.create_personas(db=db, nom=persona)
 
-@persona.put("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"])
-def update_persona(id: int, persona: schemas.personas.PersonaUpdate, db: Session = Depends(get_db), dependencies=[Depends(Portador())]):
+@persona.put("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"],dependencies=[Depends(Portador())])
+def update_persona(id: int, persona: schemas.personas.PersonaUpdate, db: Session = Depends(get_db)):
     db_user = crud.personas.update_personas(db=db, id=id, person=persona)
     if db_user is None:
         raise HTTPException(status_code=404, detail="Persona no existe, no actualizado")
