@@ -4,6 +4,8 @@ from cryptography.fernet import Fernet
 import crud.personas
 import crud.personas, config.db, schemas.personas, models.personas
 from typing import List
+from portadortoken import Portador
+
 
 key=Fernet.generate_key()
 f = Fernet(key)
@@ -19,14 +21,14 @@ def get_db():
     finally:
         db.close()
 
-@persona.get("/personas/", response_model=List[schemas.personas.Persona], tags=["Personas"])
+@persona.get("/personas/", response_model=List[schemas.personas.Persona], tags=["Personas"],dependencies=[Depends(Portador())] )
 def read_persnas(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     db_users= crud.personas.get_personas(db=db, skip=skip, limit=limit)
     return db_users
 
-@persona.post("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"])
+@persona.post("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"],dependencies=[Depends(Portador())])
 def read_persona(id: int, db: Session = Depends(get_db)):
-    db_user= crud.personas.get_personas(db=db, id=id)
+    db_user= crud.personas.get_persona(db=db, id=id)
     if db_user is None:
         raise HTTPException(status_code=404, detail="Person not found")
     return db_user
@@ -39,13 +41,13 @@ def create_persona(persona: schemas.personas.PersonaCreate, db: Session = Depend
     return crud.personas.create_personas(db=db, nom=persona)
 
 @persona.put("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"])
-def update_persona(id: int, persona: schemas.personas.PersonaUpdate, db: Session = Depends(get_db)):
+def update_persona(id: int, persona: schemas.personas.PersonaUpdate, db: Session = Depends(get_db), dependencies=[Depends(Portador())]):
     db_user = crud.personas.update_personas(db=db, id=id, person=persona)
     if db_user is None:
         raise HTTPException(status_code=404, detail="Persona no existe, no actualizado")
     return db_user
 
-@persona.delete("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"])
+@persona.delete("/persona/{id}", response_model=schemas.personas.Persona, tags=["Personas"],dependencies=[Depends(Portador())])
 def delete_persona(id: int, db: Session = Depends(get_db)):
     db_user = crud.personas.delete_personas(db=db, id=id)
     if db_user is None:
