@@ -10,8 +10,8 @@ class PersonaBase(BaseModel):
     Segundo_Apellido: str
     Fecha_Nacimiento: date
     Fotografia: str
-    Genero: enum
-    Tipo_Sangre: enum
+    Genero: str
+    Tipo_Sangre: str
     Estatus: bool
     Fecha_Registro : datetime
     Fecha_Actualizacion: datetime

@@ -1,14 +1,14 @@
 from typing import List, Union, Optional
 from pydantic import BaseModel
 from datetime import datetime
-import enum
+
 class UserBase(BaseModel):
     Persona_ID : int
     Nombre_Usuario: str
     Correo_Electronico: str
     Contrasena: str
     Numero_Telefonico_Movil: str
-    Estatus: enum
+    Estatus: str
     Fecha_Registro : datetime
     Fecha_Actualizacion : datetime
     
