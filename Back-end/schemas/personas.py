@@ -1,6 +1,7 @@
 from typing import List, Union
 from pydantic import BaseModel
 from datetime import datetime, date
+import enum
 
 class PersonaBase(BaseModel):
     Titulo_Cortesia: str
@@ -9,8 +10,8 @@ class PersonaBase(BaseModel):
     Segundo_Apellido: str
     Fecha_Nacimiento: date
     Fotografia: str
-    Genero: str
-    Tipo_Sangre: str
+    Genero: enum
+    Tipo_Sangre: enum
     Estatus: bool
     Fecha_Registro : datetime
     Fecha_Actualizacion: datetime
